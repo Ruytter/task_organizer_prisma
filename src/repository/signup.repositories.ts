@@ -1,15 +1,17 @@
-import {connection} from "../database/database.js";
+import { Responsavel } from './../protocols';
+import prisma from "../database/database.js"
 
-export function selectResp(email){
-   return connection.query(
-        `SELECT * FROM responsavel WHERE email = $1 `,
-        [email]
-      );
+export function selectResp(email: string){
+   return prisma.responsavel.findFirst({
+    where:{
+      email
+    }
+   })
 }
 
-export function insertResp(name, email, password){
-   return connection.query(
-        `INSERT INTO responsavel (name, email, password) VALUES ($1, $2, $3)`,
-        [name, email, password]
-      );
+export function insertResp(resp: Responsavel){
+  console.log(resp)
+   return prisma.responsavel.create({
+    data:resp,
+   })
 }

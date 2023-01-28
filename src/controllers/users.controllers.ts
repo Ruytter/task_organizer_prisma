@@ -1,4 +1,3 @@
-import { connection } from "../database/database.js";
 import { Request, Response } from "express";
 import { Responsavel } from "../protocols.js";
 import { selectResp, insertResp } from "../repository/signup.repositories.js"
@@ -8,12 +7,13 @@ export async function createUser(req: Request, res: Response) {
   const newResponsavel = req.body as Responsavel
   try {
     const existingResponsaveis = await selectResp(newResponsavel.email)
-    if (existingResponsaveis.rowCount > 0) {
+    if (existingResponsaveis!==null) {
       return res.status(409).send("E_mail já cadastrado");
     }
 
     const passwordHash = bcrypt.hashSync(newResponsavel.password, 10);
-    await insertResp(newResponsavel.name, newResponsavel.email, passwordHash)
+    newResponsavel.password = passwordHash;
+    await insertResp(newResponsavel)
     res.sendStatus(201);
   } catch (error) {
     console.log(error);

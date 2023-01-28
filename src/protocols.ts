@@ -11,12 +11,12 @@ export type LoginResp = {
   password: string
 }
 
-// export type Sessao = {
-//  id: number,
-//  responsavelId: number,
-//  token: string,
-//  createdAt: Date
-// }
+export type Sessions = {
+ id?: number,
+ responsavelId: number,
+ token: string,
+ createdAt?: Date
+}
 
 export type Tarefa = {
  id: number,

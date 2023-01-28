@@ -1,17 +1,19 @@
-import {connection} from "../database/database.js";
+import prisma from "../database/database.js";
 
 export function selectSession(token: string){
-   return connection.query(
-    `SELECT *  FROM sessions WHERE token = $1`,
-    [token]
-  );
+   return prisma.sessions.findFirst({
+    where:{
+      token
+    }
+   })
 }
 
-export function selectRespBySessionRespId(responsavelId: number){
-    return connection.query(
-        `SELECT * FROM responsavel WHERE id = $1 `,
-        [responsavelId]
-      );
+export function selectRespBySessionRespId(id: number){
+    return prisma.responsavel.findFirst({
+      where:{
+        id
+      }
+    })
  }
 
 

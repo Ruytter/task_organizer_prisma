@@ -18,8 +18,8 @@ export async function createTask(req: Request, res: Response) {
 export async function selectTasks(req: Request, res: Response) {
     const resp = res.locals.responsavel as Responsavel
     try {
-     const { rows } = await selectRespTasks(resp)
-      return res.status(200).send(rows)
+     const tasks = await selectRespTasks(resp.id)
+      return res.status(200).send(tasks)
     } catch (error) {
       console.log(error);
       return res.status(500).send(error.message);
@@ -30,12 +30,13 @@ export async function selectTasks(req: Request, res: Response) {
     const resp = res.locals.responsavel as Responsavel
     const  { id } = req.params
     const { status } = req.body
+    console.log(status)
     try {
-      const { rows } = await selectrespIdTask(Number(id))
-      if (rows.length === 0){
+      const task = await selectrespIdTask(Number(id))
+      if (task === null){
         return res.status(406).send("Tarefa não encontrada")
       }
-      if(resp.id !== rows[0]?.responsavelId){
+      if(resp.id !== task.responsavelId){
         return res.status(403).send("Esta tarefa não é de sua responsabilidade")
       }
       await updateTasks(status, Number(id))
@@ -50,11 +51,11 @@ export async function selectTasks(req: Request, res: Response) {
     const resp = res.locals.responsavel as Responsavel
     const  { id } = req.params
     try {
-      const { rows } = await selectrespIdTask(Number(id))
-      if (rows.length === 0){
+      const task = await selectrespIdTask(Number(id))
+      if (task === null){
         return res.status(406).send("Você está tentando deletar uma tarefa inesistente")
       }
-      if(resp.id !== rows[0]?.responsavelId){
+      if(resp.id !== task.responsavelId){
         return res.status(403).send("Esta tarefa não é de sua responsabilidade")
       }
       await deleteTaskById(Number(id))

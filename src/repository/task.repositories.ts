@@ -1,43 +1,54 @@
-import {connection} from "../database/database.js";
-import { Tarefa, Responsavel } from "../protocols.js";
- import dayjs from "dayjs";
- 
+import prisma from "../database/database.js";
+import { Tarefa, Responsavel } from "../protocols.js"; 
 
 export function insertTask( task: Tarefa, resp: Responsavel ){
-    const { name, descricao, status} = task
-    return connection.query(
-         `INSERT INTO tarefa ("responsavelId", name, descricao, status) VALUES ($1, $2, $3, $4)`,
-         [resp.id, name, descricao, status]
-       );
+    return prisma.tarefa.create({
+      data:{...task, responsavelId: resp.id,}
+    })
  }
 
- export function selectRespTasks(resp: Responsavel ){
-    const { id } = resp
-    return connection.query(
-         `SELECT r.name AS responsavel, t.name as tarefa, t.descricao, t.dia, t.status FROM responsavel r JOIN tarefa t  ON r.id = t."responsavelId" WHERE r.id = $1`,
-         [id]
-       );
+ export function selectRespTasks( id:number ){
+    const data = prisma.responsavel.findFirst({
+      where: { id },
+      select: {
+        name: true,
+        tarefa: {
+          select: {
+            name: true,
+            descricao: true,
+            dia: true,
+            status: true,
+          }
+        }
+      }
+    })
+    return data;
  }
 
  export function selectrespIdTask(id: number ){
-  return connection.query(
-       `SELECT "responsavelId" FROM tarefa  WHERE id = $1`,
-       [id]
-     );
+  return prisma.tarefa.findFirst({
+    where: {id},
+    select:{
+      responsavelId: true,
+    }
+
+  })
 }
 
  export function updateTasks(status: string, id: number){
-  return connection.query(
-       `UPDATE "tarefa" SET status = $1, dia = $2 WHERE id = $3`,
-       [status, dayjs().format('DD/MM/YYYYTHH:mm:ss'), id]
-     );
-
+  return prisma.tarefa.update({
+    where:{
+       id,
+    },
+    data:{
+       status,
+       dia: new Date,
+    },
+  })
   }
 
   export function deleteTaskById(id: number){
-    return connection.query(
-         `DELETE FROM tarefa WHERE id = $1`,
-         [id]
-       );
-  
+    return prisma.tarefa.delete({
+      where:{id}
+    })  
     }

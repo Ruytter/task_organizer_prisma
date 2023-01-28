@@ -10,21 +10,17 @@ export async function authValidation(req: Request, res: Response, next: NextFunc
   }
 
   try {
-    const { rows: sessions } = await selectSession(token) 
-   
-    const [session] = sessions;
+    const sessions = await selectSession(token)
 
-    if (!session) {
+    if (!sessions) {
       return res.status(401).send("Session not found");
     }
 
-    if(!session.active){
+    if(!sessions.active){
       return res.status(401).send("Nescessário fazer login no sistema");
     }
 
-    const { rows: responsaveis } = await selectRespBySessionRespId(session.responsavelId) 
-    
-    const [ responsavel] = responsaveis;
+    const responsavel = await selectRespBySessionRespId(sessions.responsavelId) 
 
     if (!responsavel) {
       return res.status(401).send("Responsavel not found.");

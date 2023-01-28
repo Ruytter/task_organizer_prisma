@@ -36,7 +36,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-01-21T13:55:39.792Z",
-    "modified": "2023-01-23T15:22:08.408Z",
+    "modified": "2023-01-28T15:57:49.872Z",
     "headers": [],
     "params": [],
     "body": {
@@ -46,7 +46,7 @@
     },
     "auth": {
       "type": "bearer",
-      "bearer": "82cccacf-211b-4942-9ec2-c4eb461a6ea4"
+      "bearer": "da836ffd-a8ab-4e08-9b70-5eb8cb8e70ad"
     },
     "tests": []
   },
@@ -55,11 +55,11 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:4000",
-    "url": "http://localhost:4000/1",
+    "url": "http://localhost:4000/2",
     "method": "DELETE",
     "sortNum": 0,
     "created": "2023-01-21T13:55:44.761Z",
-    "modified": "2023-01-23T18:18:42.495Z",
+    "modified": "2023-01-28T17:11:28.052Z",
     "headers": [],
     "params": [],
     "body": {
@@ -69,7 +69,7 @@
     },
     "auth": {
       "type": "bearer",
-      "bearer": "32d72173-f081-4d23-b475-d1b15d5de752"
+      "bearer": "9c581eaf-a5f5-4109-b13b-5a2afe8693b4"
     },
     "tests": []
   },
@@ -115,21 +115,21 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:4000/singup",
-    "url": "http://localhost:4000//gettasks",
+    "url": "http://localhost:4000/3",
     "method": "PUT",
     "sortNum": 0,
     "created": "2023-01-21T20:25:40.827Z",
-    "modified": "2023-01-24T04:11:48.441Z",
+    "modified": "2023-01-28T17:21:12.370Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Maria\",\n  \"email\": \"maria@gmail.com\",\n  \"password\": \"123456\"\n}",
+      "raw": "{\n \"status\": \"em execução\"\n}",
       "form": []
     },
     "auth": {
       "type": "bearer",
-      "bearer": "d1478b54-f766-4b90-8e8a-5fa8b05f473a"
+      "bearer": "3a04cfb3-bcd4-4562-aa87-645d878f5273"
     },
     "tests": []
   },
@@ -138,17 +138,21 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:4000/health",
-    "url": "http://localhost:4000/logout",
+    "url": "http://localhost:4000/createtask",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-21T20:58:50.944Z",
-    "modified": "2023-01-23T14:35:38.569Z",
+    "modified": "2023-01-28T15:46:58.744Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Ruytter\",\n  \"email\": \"ruytter@gmail.com\",\n  \"password\": \"123456\"\n}",
+      "raw": "{\n  \"name\": \"Codar\",\n  \"descricao\": \"fazer projetão e poc\",\n  \"status\": \"em execução\"\n}",
       "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "9c581eaf-a5f5-4109-b13b-5a2afe8693b4"
     },
     "tests": []
   },
@@ -157,17 +161,21 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:4000/healt",
-    "url": "http://localhost:4000/health",
+    "url": "http://localhost:4000/logout",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-21T21:03:30.543Z",
-    "modified": "2023-01-24T18:43:28.765Z",
+    "modified": "2023-01-28T17:17:57.456Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"Ruytter\",\n  \"email\": \"ruytter@gmail.com\",\n  \"password\": \"123456\"\n}",
       "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "9c581eaf-a5f5-4109-b13b-5a2afe8693b4"
     },
     "tests": []
   },
@@ -199,12 +207,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-22T01:34:59.702Z",
-    "modified": "2023-01-24T19:42:10.474Z",
+    "modified": "2023-01-28T17:19:42.818Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\": \"jose@gmail.com\",\n  \"password\": \"123456\"\n}",
+      "raw": "{\n  \"email\": \"joana@gmail.com\",\n  \"password\": \"123456\"\n}",
       "form": []
     },
     "auth": {

@@ -9,14 +9,15 @@ import { LoginResp } from "../protocols.js";
 export async function signin(req : Request, res : Response) {
   const newLoginResp = req.body as LoginResp;
   let token:string;
-
-  const { rows: responsaveis } = await selectResp(newLoginResp.email) 
-  const [ responsavel ] = responsaveis;
-  if (!responsavel) {
+  
+  const  responsavel  = await selectResp(newLoginResp.email) 
+  
+  if (responsavel===null) {
     return res.sendStatus(401);
   }
-  const { rows: Token } = await selectToken(responsavel.id)
-  if (Token[0]?.token) {
+  const  Token  = await selectToken(responsavel.id)
+  console.log(Token)
+  if (Token!==null) {
     token = uuid();
     await activeSession(token, responsavel.id)
   }else if(bcrypt.compareSync(newLoginResp.password, responsavel.password)) {
@@ -28,7 +29,7 @@ export async function signin(req : Request, res : Response) {
   const { name } = responsavel;
   const data = {
     token,
-    name
+     name
   };
   return res.status(200).send(data);
 }

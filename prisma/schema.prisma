@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model responsavel {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  password  String
+  createdAt DateTime  @default(now()) @db.Timestamp(6)
+  sessions  sessions?
+  tarefa    tarefa[]
+}
+
+model sessions {
+  id            Int         @id @default(autoincrement())
+  responsavelId Int         @unique
+  token         String
+  active        Boolean     @default(true)
+  createdAt     DateTime    @default(now()) @db.Timestamp(6)
+  responsavel   responsavel @relation(fields: [responsavelId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model tarefa {
+  id            Int         @id @default(autoincrement())
+  responsavelId Int
+  name          String
+  descricao     String
+  dia           DateTime    @default(now()) @db.Timestamp(6)
+  status        String
+  createdAt     DateTime    @default(now()) @db.Timestamp(6)
+  responsavel   responsavel @relation(fields: [responsavelId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}

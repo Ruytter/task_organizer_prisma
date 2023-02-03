@@ -1,5 +1,5 @@
-import prisma from "../database/database.js";
-import { Tarefa, Responsavel } from "../protocols.js"; 
+import prisma from "../database/database";
+import { Tarefa, Responsavel } from "../protocols"; 
 
 export function insertTask( task: Tarefa, resp: Responsavel ){
     return prisma.tarefa.create({

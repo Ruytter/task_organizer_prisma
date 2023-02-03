@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { Tarefa, Responsavel } from "../protocols.js";
-import { insertTask, selectRespTasks, updateTasks, deleteTaskById, selectrespIdTask } from "../repository/task.repositories.js"
+import { Tarefa, Responsavel } from "../protocols";
+import { insertTask, selectRespTasks, updateTasks, deleteTaskById, selectrespIdTask } from "../repository/task.repositories"
 
 export async function createTask(req: Request, res: Response) {
   const newTask = req.body as Tarefa

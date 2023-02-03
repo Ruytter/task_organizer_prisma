@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { Responsavel } from "../protocols.js";
-import { selectResp, insertResp } from "../repository/signup.repositories.js"
+import { Responsavel } from "../protocols";
+import { selectResp, insertResp } from "../repository/signup.repositories"
 import bcrypt from "bcrypt";
 
 export async function createUser(req: Request, res: Response) {

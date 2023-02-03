@@ -2,13 +2,25 @@
     "compilerOptions": {
         "outDir": "dist",
         "esModuleInterop": true,
-        "module": "ES6",
+        "module": "CommonJS",
         "moduleResolution": "Node"
     },
     "ts-node": {
         "esm": true
     },
-    "exclude": [
-        "node_modules"
-    ]
+    // "exclude": [
+    //     "node_modules"
+    // ]
 }
+
+// {
+//     "compilerOptions": {
+//       "outDir": "dist",
+//       "esModuleInterop": true,
+//       "module": "CommonJS",
+//       "moduleResolution": "Node"
+//     },
+//     "ts-node": {
+//       "esm": true
+//     },
+//   }

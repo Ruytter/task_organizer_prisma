@@ -1,4 +1,4 @@
-import prisma from "../database/database.js";
+import prisma from "../database/database";
 export function selectToken(responsavelId: number){
    return prisma.sessions.findFirst({
       select:{

@@ -1,5 +1,5 @@
 import { Responsavel } from './../protocols';
-import prisma from "../database/database.js"
+import prisma from "../database/database"
 
 export function selectResp(email: string){
    return prisma.responsavel.findFirst({
@@ -10,7 +10,6 @@ export function selectResp(email: string){
 }
 
 export function insertResp(resp: Responsavel){
-  console.log(resp)
    return prisma.responsavel.create({
     data:resp,
    })

@@ -1,10 +1,9 @@
 import bcrypt from "bcrypt";
 import { Request, Response } from "express";
 import { v4 as uuid } from "uuid";
-import { Responsavel } from "../protocols.js";
-import { selectResp } from "../repository/signup.repositories.js";
-import { selectToken, activeSession, createSession, lockSession } from "../repository/signin.reposituries.js";
-import { LoginResp } from "../protocols.js";
+import { Responsavel, LoginResp } from "../protocols";
+import { selectResp } from "../repository/signup.repositories";
+import { selectToken, activeSession, createSession, lockSession } from "../repository/signin.reposituries";
 
 export async function signin(req : Request, res : Response) {
   const newLoginResp = req.body as LoginResp;
@@ -16,7 +15,6 @@ export async function signin(req : Request, res : Response) {
     return res.sendStatus(401);
   }
   const  Token  = await selectToken(responsavel.id)
-  console.log(Token)
   if (Token!==null) {
     token = uuid();
     await activeSession(token, responsavel.id)

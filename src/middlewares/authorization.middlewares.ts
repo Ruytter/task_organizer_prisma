@@ -1,4 +1,4 @@
-import { selectSession, selectRespBySessionRespId } from "../repository/authorization.repositories.js"
+import { selectSession, selectRespBySessionRespId } from "../repository/authorization.repositories"
 import { Request, Response, NextFunction } from "express";
 
 export async function authValidation(req: Request, res: Response, next: NextFunction) {

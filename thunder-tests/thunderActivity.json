@@ -115,21 +115,21 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:4000/singup",
-    "url": "http://localhost:4000/3",
-    "method": "PUT",
+    "url": "http://localhost:4000/gettasks",
+    "method": "GET",
     "sortNum": 0,
     "created": "2023-01-21T20:25:40.827Z",
-    "modified": "2023-01-28T17:21:12.370Z",
+    "modified": "2023-02-03T19:04:59.856Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n \"status\": \"em execução\"\n}",
+      "raw": "{\n \n \"status\": \"em execução\"\n}",
       "form": []
     },
     "auth": {
       "type": "bearer",
-      "bearer": "3a04cfb3-bcd4-4562-aa87-645d878f5273"
+      "bearer": "eb9f24f8-0fe5-4838-8025-769049c8c640"
     },
     "tests": []
   },
@@ -142,7 +142,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-21T20:58:50.944Z",
-    "modified": "2023-01-28T15:46:58.744Z",
+    "modified": "2023-02-03T19:05:36.910Z",
     "headers": [],
     "params": [],
     "body": {
@@ -152,7 +152,7 @@
     },
     "auth": {
       "type": "bearer",
-      "bearer": "9c581eaf-a5f5-4109-b13b-5a2afe8693b4"
+      "bearer": "eb9f24f8-0fe5-4838-8025-769049c8c640"
     },
     "tests": []
   },
@@ -161,11 +161,11 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:4000/healt",
-    "url": "http://localhost:4000/logout",
+    "url": "http://localhost:4000/signup",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-21T21:03:30.543Z",
-    "modified": "2023-01-28T17:17:57.456Z",
+    "modified": "2023-02-03T01:07:59.424Z",
     "headers": [],
     "params": [],
     "body": {
@@ -207,12 +207,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-22T01:34:59.702Z",
-    "modified": "2023-01-28T17:19:42.818Z",
+    "modified": "2023-02-03T19:04:20.074Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\": \"joana@gmail.com\",\n  \"password\": \"123456\"\n}",
+      "raw": "{\n  \"email\": \"ruytter@gmail.com\",\n  \"password\": \"123456\"\n}",
       "form": []
     },
     "auth": {

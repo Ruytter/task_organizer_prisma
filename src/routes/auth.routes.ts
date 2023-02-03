@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { signin, logout } from "../controllers/auth.controllers.js";
-import { createUser } from "../controllers/users.controllers.js";
-import { validateSchema } from "../middlewares/schemaValidator.js";
-import { authValidation } from "../middlewares/authorization.middlewares.js";
-import loginSchema from "../models/loginSchema.js";
-import userSchema from "../models/userSchema.js";
+import { signin, logout } from "../controllers/auth.controllers";
+import { createUser } from "../controllers/users.controllers";
+import { validateSchema } from "../middlewares/schemaValidator";
+import { authValidation } from "../middlewares/authorization.middlewares";
+import loginSchema from "../models/loginSchema";
+import userSchema from "../models/userSchema";
 
 const router = Router();
 

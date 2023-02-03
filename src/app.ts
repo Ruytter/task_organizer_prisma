@@ -1,12 +1,12 @@
 import express from "express";
-import router from './routes/indexRoutes.js';
+import router from './routes/indexRoutes';
 import { Request, Response } from "express";
 
 
-const server = express();
-server.use(express.json());
-server.use(router);
+const app = express();
+app.use(express.json());
+app.use(router);
 
-server.post("/health", (req: Request, res: Response) => {res.send("OK")})
+app.post("/health", (req: Request, res: Response) => {res.send("OK")})
 
-server.listen(4000, () => console.log("Serve is runing in port 4000"))
+export default app

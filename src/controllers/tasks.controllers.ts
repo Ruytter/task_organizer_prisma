@@ -30,7 +30,6 @@ export async function selectTasks(req: Request, res: Response) {
     const resp = res.locals.responsavel as Responsavel
     const  { id } = req.params
     const { status } = req.body
-    console.log(status)
     try {
       const task = await selectrespIdTask(Number(id))
       if (task === null){

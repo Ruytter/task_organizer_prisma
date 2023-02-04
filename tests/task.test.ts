@@ -92,7 +92,6 @@ describe("Testando a api", () => {
       });
       const task = await prisma.tarefa.findFirst();
       id = task.id
-      console.log(task)
       const result = await api
         .delete(`/${id}`)
         .set("authorization", `Bearer ${token2.body.token}`);
